@@ -1,0 +1,87 @@
+% Ce fichier main.tex est le fichier principal \`{a} partir duquel tout est g\'{e}n\'{e}r\'{e}
+%This file is the main file where the final document is generated
+%appel de la class these-ubl 
+% these-ubl class call
+\documentclass{these-ubl} 
+\usepackage{natbib}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{afterpage}
+\usepackage{pdfpages}
+
+
+\begin{document}
+
+\input{./Couverture-these/pagedegarde} % page de garde UR1
+
+% Sélectionner la langue du contenu suivant cette ligne
+% Select the content language following this line
+\selectlanguage{french}
+
+%inclusion du chapitre remerciement (acknowledgement)
+%input acknowledgement chapter 
+\clearemptydoublepage
+\input{./Acknowledgement/acknowledgement}
+
+% Ne pas oublier cette commande qui g\'{e}n\`{e}re la page de couverture avant
+%This command will generate the front cover
+%\clearemptydoublepage
+%\frontmatter 
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents %sommaire %table of content
+
+\clearemptydoublepage
+\input{./Introduction/introduction}
+%\shorttableofcontents{Sommaire}{0}
+%
+% Mettre ici votre chapitre d'Introduction, le cas \'{e}ch\'{e}ant
+%Input the introduction chapter 
+% 
+%\clearemptydoublepage
+
+%
+% Mettre ici votre chapitre 1
+%Input your chapter 1
+%
+\input{./Chapitre1/chapitre1}
+%
+% Mettre ici votre chapitre 2
+%Input your chapter 2
+% 
+%\clearemptydoublepage
+\input{./Chapitre2/chapitre2} 
+% Pour inclure un papier sous format pdf mettre dans le chapitre:
+% \includepdf[pages=-]{Chapitre2/****.pdf}
+% 
+%
+% D\'{e}-commenter pour ins\'{e}rer les autres chapitres, ici votre chapitre X
+% Uncomment to insert other chapters, here your chapter X
+% 
+%\input{./Chapitrex/chapitrex}
+%\clearemptydoublepage
+% 
+\clearemptydoublepage
+\input{./Conclusion/conclusion}
+
+
+\clearemptydoublepage
+\appendix
+
+
+
+% Chapitre pour la bibliographie
+% Bibliography chapter
+%\clearemptydoublepage
+\phantomsection % To have a correct link in the table of contents
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliographystyle{ametsoc2014}% biblio au format Ocean Science
+\bibliography{./biblio/biblio.bib}
+
+
+%\clearemptydoublepage
+% Pour avoir la quatrième de couverture sur une page paire
+% To have the back cover on an even page
+\cleartoevenpage[\thispagestyle{empty}]
+\input{./Couverture-these/resume}
+\end{document}
